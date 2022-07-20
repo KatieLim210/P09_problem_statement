@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
 
     EditText etTitle, etSinger, etYear;
     Button btnInsert, btnList;
-    RadioGroup radioGroup;
     TextView tvTitle, tvSinger, tvYear, tvStars;
     RatingBar ratingBar;
     ArrayList<song> al;
@@ -46,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         aa = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, al);
         al = new ArrayList<>();
+
+        Intent i = getIntent();
+        data = (song) i.getSerializableExtra("data");
 
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override

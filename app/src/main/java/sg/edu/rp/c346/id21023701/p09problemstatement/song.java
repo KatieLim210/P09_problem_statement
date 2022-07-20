@@ -13,6 +13,7 @@ public class song implements Serializable {
 
 
     public song(int id, String title, String singers, int year, int stars) {
+        this.id = id;
         this.title = title;
         this.singers = singers;
         this.year = year;
@@ -37,18 +38,34 @@ public class song implements Serializable {
         return year;
     }
     public int getStar() {
+
         return stars;
     }
 
-
-    public String setTitle(String toString) {
-        return title;
-    }
-    public int setYear(String toString) {
-        return year;
-    }
-    public String setSinger(String toString) {
-        return singers;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setSingers(String singers) {
+        this.singers = singers;
+    }
+
+    public void setStars(int stars) {
+        this.stars = stars;
+    }
+
+    @Override
+    public String toString() {
+        return "song{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", singers='" + singers + '\'' +
+                ", year=" + year +
+                ", stars=" + stars +
+                '}';
+    }
 }

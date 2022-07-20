@@ -48,11 +48,12 @@ public class SongEdit extends AppCompatActivity {
             public void onClick(View v) {
                 DBHelper dbh = new DBHelper(SongEdit.this);
                 data.setTitle(etTitle.getText().toString());
-                data.setSinger(etSinger.getText().toString());
-                data.setYear(etYear.getText().toString());
+                data.setSingers(etSinger.getText().toString());
+                data.setYear(Integer.parseInt(etYear.getText().toString()));
                 dbh.updateSong(data);
                 dbh.close();
-                finish();
+                Intent i = new Intent(SongEdit.this, ListView.class);
+                startActivity(i);
             }
         });
 
@@ -61,13 +62,16 @@ public class SongEdit extends AppCompatActivity {
             public void onClick(View view) {
                 DBHelper dbh = new DBHelper(SongEdit.this);
                 dbh.deleteSong(data.get_id());
+                Intent i = new Intent(SongEdit.this,ListView.class);
+                startActivity(i);
             }
         });
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent i = new Intent(SongEdit.this,ListView.class);
+                startActivity(i);
             }
         });
     }

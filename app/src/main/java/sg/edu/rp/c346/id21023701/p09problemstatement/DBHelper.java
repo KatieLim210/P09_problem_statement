@@ -14,7 +14,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "ndpsong.db";
     private static final int DATABASE_VERSION = 1;
     private static final String TABLE_SONG = "song";
-    private static final String COLUMN_ID = "id";
+    private static final String COLUMN_ID = "_id";
     private static final String COLUMN_TITLE = "title";
     private static final String COLUMN_SINGERS = "singers";
     private static final String COLUMN_YEAR = "year";
@@ -28,7 +28,12 @@ public class DBHelper extends SQLiteOpenHelper {
 }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createNoteTableSql = "CREATE TABLE " + TABLE_SONG + "(" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_TITLE + " TEXT, " + COLUMN_SINGERS + " TEXT, " + COLUMN_YEAR + " INTEGER, " + COLUMN_STARS + " INTEGER ) ";
+        String createNoteTableSql = "CREATE TABLE " + TABLE_SONG + "("
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_TITLE + " TEXT, "
+                + COLUMN_SINGERS + " TEXT, "
+                + COLUMN_YEAR + " INTEGER, "
+                + COLUMN_STARS + " INTEGER ) ";
         db.execSQL(createNoteTableSql);
         Log.i("info", "Tables have been created");
 
