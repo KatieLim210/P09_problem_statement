@@ -58,16 +58,16 @@ public class MainActivity extends AppCompatActivity {
 
                 long inserted_id = dbh.insertSong(title,singers,year,stars);
                 if (inserted_id != -1){
-                    al.clear();
-                    al.addAll(dbh.getAllSongs());
-                    aa.notifyDataSetChanged();
-                    Toast.makeText(MainActivity.this, "Insert successful",
-                            Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(MainActivity.this, "Insert unsuccessful",
-                            Toast.LENGTH_SHORT).show();
-                }
+                al.clear();
+                al.addAll(dbh.getAllSongs());
+                aa.notifyDataSetChanged();
+                Toast.makeText(MainActivity.this, "Insert successful",
+                        Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(MainActivity.this, "Insert unsuccessful",
+                        Toast.LENGTH_SHORT).show();
             }
+        }
         });
 
 
